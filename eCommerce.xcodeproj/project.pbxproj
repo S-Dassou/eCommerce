@@ -10,7 +10,6 @@
 		F62962F92AD153F200E7E9D5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62962F82AD153F200E7E9D5 /* Product.swift */; };
 		F62962FC2AD2246900E7E9D5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62962FB2AD2246900E7E9D5 /* HomeViewModel.swift */; };
 		F629632E2AD4491C00E7E9D5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F629632D2AD4491C00E7E9D5 /* LoginView.swift */; };
-		F62963322AD455A600E7E9D5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F62963312AD455A600E7E9D5 /* FirebaseAuth */; };
 		F62963342AD4573900E7E9D5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62963332AD4573900E7E9D5 /* LoginViewModel.swift */; };
 		F65609722ACA022500BC12DB /* eCommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609712ACA022500BC12DB /* eCommerceApp.swift */; };
 		F65609742ACA022500BC12DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609732ACA022500BC12DB /* ContentView.swift */; };
@@ -20,6 +19,12 @@
 		F65609822ACA037300BC12DB /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609812ACA037300BC12DB /* FavouritesView.swift */; };
 		F65609842ACA038700BC12DB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609832ACA038700BC12DB /* AccountView.swift */; };
 		F65609862ACA3DA100BC12DB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609852ACA3DA100BC12DB /* HomeView.swift */; };
+		F68D61482AD5946200FEF352 /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D61472AD5946200FEF352 /* SessionState.swift */; };
+		F68D614C2AD5960400FEF352 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D614B2AD5960400FEF352 /* SessionService.swift */; };
+		F68D614F2AD59BD800FEF352 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F68D614E2AD59BD800FEF352 /* FirebaseAuth */; };
+		F68D61512AD59BD800FEF352 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F68D61502AD59BD800FEF352 /* FirebaseAuthCombine-Community */; };
+		F68D61532AD59BD800FEF352 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F68D61522AD59BD800FEF352 /* FirebaseFirestore */; };
+		F68D61552AD59BD800FEF352 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = F68D61542AD59BD800FEF352 /* FirebaseInstallations */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,8 @@
 		F65609812ACA037300BC12DB /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		F65609832ACA038700BC12DB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		F65609852ACA3DA100BC12DB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F68D61472AD5946200FEF352 /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
+		F68D614B2AD5960400FEF352 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +50,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F62963322AD455A600E7E9D5 /* FirebaseAuth in Frameworks */,
+				F68D614F2AD59BD800FEF352 /* FirebaseAuth in Frameworks */,
+				F68D61512AD59BD800FEF352 /* FirebaseAuthCombine-Community in Frameworks */,
+				F68D61532AD59BD800FEF352 /* FirebaseFirestore in Frameworks */,
+				F68D61552AD59BD800FEF352 /* FirebaseInstallations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				F62962F82AD153F200E7E9D5 /* Product.swift */,
+				F68D61472AD5946200FEF352 /* SessionState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +118,7 @@
 		F65609702ACA022500BC12DB /* eCommerce */ = {
 			isa = PBXGroup;
 			children = (
+				F68D614A2AD595D300FEF352 /* Services */,
 				F65609712ACA022500BC12DB /* eCommerceApp.swift */,
 				F62962F72AD153E400E7E9D5 /* Models */,
 				F62962FD2AD2248100E7E9D5 /* Views */,
@@ -123,6 +135,14 @@
 				F65609782ACA022900BC12DB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F68D614A2AD595D300FEF352 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F68D614B2AD5960400FEF352 /* SessionService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +162,10 @@
 			);
 			name = eCommerce;
 			packageProductDependencies = (
-				F62963312AD455A600E7E9D5 /* FirebaseAuth */,
+				F68D614E2AD59BD800FEF352 /* FirebaseAuth */,
+				F68D61502AD59BD800FEF352 /* FirebaseAuthCombine-Community */,
+				F68D61522AD59BD800FEF352 /* FirebaseFirestore */,
+				F68D61542AD59BD800FEF352 /* FirebaseInstallations */,
 			);
 			productName = eCommerce;
 			productReference = F656096E2ACA022500BC12DB /* eCommerce.app */;
@@ -173,7 +196,7 @@
 			);
 			mainGroup = F65609652ACA022500BC12DB;
 			packageReferences = (
-				F629632F2AD44F7600E7E9D5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F68D614D2AD59BD800FEF352 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F656096F2ACA022500BC12DB /* Products */;
 			projectDirPath = "";
@@ -201,11 +224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F68D614C2AD5960400FEF352 /* SessionService.swift in Sources */,
 				F65609802ACA035C00BC12DB /* CartView.swift in Sources */,
 				F65609742ACA022500BC12DB /* ContentView.swift in Sources */,
 				F65609822ACA037300BC12DB /* FavouritesView.swift in Sources */,
 				F629632E2AD4491C00E7E9D5 /* LoginView.swift in Sources */,
 				F62962FC2AD2246900E7E9D5 /* HomeViewModel.swift in Sources */,
+				F68D61482AD5946200FEF352 /* SessionState.swift in Sources */,
 				F65609862ACA3DA100BC12DB /* HomeView.swift in Sources */,
 				F65609722ACA022500BC12DB /* eCommerceApp.swift in Sources */,
 				F65609842ACA038700BC12DB /* AccountView.swift in Sources */,
@@ -411,7 +436,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F629632F2AD44F7600E7E9D5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		F68D614D2AD59BD800FEF352 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -422,10 +447,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F62963312AD455A600E7E9D5 /* FirebaseAuth */ = {
+		F68D614E2AD59BD800FEF352 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F629632F2AD44F7600E7E9D5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F68D614D2AD59BD800FEF352 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		F68D61502AD59BD800FEF352 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F68D614D2AD59BD800FEF352 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		F68D61522AD59BD800FEF352 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F68D614D2AD59BD800FEF352 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F68D61542AD59BD800FEF352 /* FirebaseInstallations */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F68D614D2AD59BD800FEF352 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseInstallations;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

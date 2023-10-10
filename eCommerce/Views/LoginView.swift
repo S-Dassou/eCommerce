@@ -11,7 +11,7 @@ import FirebaseAuth
 struct LoginView: View {
     
     @StateObject var viewModel = LoginViewModel()
-    
+    @EnvironmentObject var sessionService: SessionService
     var body: some View {
         VStack {
             Text("LogIn")
@@ -20,7 +20,9 @@ struct LoginView: View {
             TextField("Password", text: $viewModel.password)
             Button {
                 viewModel.login() { success in
-                    
+                    if success {
+                        sessionService.sessionState = .loggedIn
+                    }
                 }
             } label: {
                 Text("LogIn")

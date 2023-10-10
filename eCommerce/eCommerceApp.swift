@@ -9,29 +9,37 @@ import SwiftUI
 
 @main
 struct eCommerceApp: App {
+    @StateObject var sessionService = SessionService()
+    
     var body: some Scene {
         WindowGroup {
-            TabView() {
-                HomeView()
-                    .tabItem {
-                        Image(systemName: "house.fill")
-                        Text("Home")
-                    }
-                CartView()
-                    .tabItem {
-                        Image(systemName: "cart.fill")
-                        Text("Cart")
-                    }
-                FavouritesView()
-                    .tabItem {
-                        Image(systemName: "heart.fill")
-                        Text("Favourites")
-                    }
-                AccountView()
-                    .tabItem {
-                        Image(systemName: "person.fill")
-                        Text("Account")
-                    }
+            switch sessionService.sessionState {
+            case .loggedIn:
+                TabView() {
+                    HomeView()
+                        .tabItem {
+                            Image(systemName: "house.fill")
+                            Text("Home")
+                        }
+                    CartView()
+                        .tabItem {
+                            Image(systemName: "cart.fill")
+                            Text("Cart")
+                        }
+                    FavouritesView()
+                        .tabItem {
+                            Image(systemName: "heart.fill")
+                            Text("Favourites")
+                        }
+                    AccountView()
+                        .tabItem {
+                            Image(systemName: "person.fill")
+                            Text("Account")
+                        }
+                }
+            case .loggedOut:
+                LoginView()
+                    .environmentObject(sessionService)
             }
         }
     }
