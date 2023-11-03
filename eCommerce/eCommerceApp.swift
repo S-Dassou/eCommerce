@@ -37,6 +37,8 @@ struct eCommerceApp: App {
                             Text("Account")
                         }
                 }
+                .environmentObject(sessionService)
+                
             case .loggedOut:
                 LoginView()
                     .environmentObject(sessionService)
