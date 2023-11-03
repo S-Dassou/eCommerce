@@ -11,6 +11,8 @@
 		F62962FC2AD2246900E7E9D5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62962FB2AD2246900E7E9D5 /* HomeViewModel.swift */; };
 		F629632E2AD4491C00E7E9D5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F629632D2AD4491C00E7E9D5 /* LoginView.swift */; };
 		F62963342AD4573900E7E9D5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62963332AD4573900E7E9D5 /* LoginViewModel.swift */; };
+		F63305082AF54BB100F195D7 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63305072AF54BB100F195D7 /* RegisterView.swift */; };
+		F633050A2AF54EB400F195D7 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63305092AF54EB400F195D7 /* RegisterViewModel.swift */; };
 		F65609722ACA022500BC12DB /* eCommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609712ACA022500BC12DB /* eCommerceApp.swift */; };
 		F65609742ACA022500BC12DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609732ACA022500BC12DB /* ContentView.swift */; };
 		F65609762ACA022900BC12DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F65609752ACA022900BC12DB /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 		F62962FB2AD2246900E7E9D5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F629632D2AD4491C00E7E9D5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F62963332AD4573900E7E9D5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F63305072AF54BB100F195D7 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		F63305092AF54EB400F195D7 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		F656096E2ACA022500BC12DB /* eCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65609712ACA022500BC12DB /* eCommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eCommerceApp.swift; sourceTree = "<group>"; };
 		F65609732ACA022500BC12DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			children = (
 				F62962FB2AD2246900E7E9D5 /* HomeViewModel.swift */,
 				F62963332AD4573900E7E9D5 /* LoginViewModel.swift */,
+				F63305092AF54EB400F195D7 /* RegisterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 				F65609832ACA038700BC12DB /* AccountView.swift */,
 				F65609812ACA037300BC12DB /* FavouritesView.swift */,
 				F629632D2AD4491C00E7E9D5 /* LoginView.swift */,
+				F63305072AF54BB100F195D7 /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,12 +232,14 @@
 			files = (
 				F68D614C2AD5960400FEF352 /* SessionService.swift in Sources */,
 				F65609802ACA035C00BC12DB /* CartView.swift in Sources */,
+				F63305082AF54BB100F195D7 /* RegisterView.swift in Sources */,
 				F65609742ACA022500BC12DB /* ContentView.swift in Sources */,
 				F65609822ACA037300BC12DB /* FavouritesView.swift in Sources */,
 				F629632E2AD4491C00E7E9D5 /* LoginView.swift in Sources */,
 				F62962FC2AD2246900E7E9D5 /* HomeViewModel.swift in Sources */,
 				F68D61482AD5946200FEF352 /* SessionState.swift in Sources */,
 				F65609862ACA3DA100BC12DB /* HomeView.swift in Sources */,
+				F633050A2AF54EB400F195D7 /* RegisterViewModel.swift in Sources */,
 				F65609722ACA022500BC12DB /* eCommerceApp.swift in Sources */,
 				F65609842ACA038700BC12DB /* AccountView.swift in Sources */,
 				F62963342AD4573900E7E9D5 /* LoginViewModel.swift in Sources */,
