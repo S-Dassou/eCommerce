@@ -16,9 +16,10 @@ struct RegisterView: View {
     
     var body: some View {
         VStack {
-            Text("LogIn")
+            Text("Register")
                 .font(.title)
-            TextField("Register", text: $viewModel.email)
+            TextField("Username", text: $viewModel.username)
+            TextField("Email", text: $viewModel.email)
             SecureField("Password", text: $viewModel.password)
             SecureField("Confirm Password", text: $viewModel.confirmPassword)
             Button {

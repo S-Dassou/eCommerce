@@ -19,7 +19,8 @@ struct LoginView: View {
             TextField("Email", text: $viewModel.email)
             TextField("Password", text: $viewModel.password)
             Button {
-                viewModel.login() { success in
+                Task {
+                    let success = await viewModel.login()
                     if success {
                         sessionService.sessionState = .loggedIn
                     }
@@ -35,7 +36,6 @@ struct LoginView: View {
         } message: {
             Text(viewModel.errorMessage)
         }
-
     }
 }
 
