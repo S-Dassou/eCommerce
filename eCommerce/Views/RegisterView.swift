@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct RegisterView: View {
     
@@ -20,7 +22,12 @@ struct RegisterView: View {
             SecureField("Password", text: $viewModel.password)
             SecureField("Confirm Password", text: $viewModel.confirmPassword)
             Button {
-                
+                Task {
+                    let success = await viewModel.register() //success returns Bool
+                    if success {
+                        sessionService.sessionState = .loggedIn
+                    }
+                }
             } label: {
                 Text("LogIn")
             }
