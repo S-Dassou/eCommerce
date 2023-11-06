@@ -6,10 +6,27 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct AccountView: View {
+    @State var goToLogin = false
+    @EnvironmentObject var sessionService: SessionService
+    
     var body: some View {
-        Text("Account View")
+        Button {
+            do {
+                try Auth.auth().signOut()
+                sessionService.sessionState = .loggedOut
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        } label: {
+            Text("SignOut")
+        }
+
+        
     }
 }
 
