@@ -65,9 +65,11 @@ struct HomeView: View {
             if favouritesManager.products.contains(where: { queryProduct in
                 queryProduct.id == product.id
             }) {
-                favouritesManager.products.removeAll { queryProduct in
-                    queryProduct.id == product.id
-                }
+                favouritesManager.products.removeAll { $0.id == product.id  }
+                
+//                favouritesManager.products.removeAll { queryProduct in
+//                    queryProduct.id == product.id
+//                }
             } else {
                 favouritesManager.products.append(product)
             }
