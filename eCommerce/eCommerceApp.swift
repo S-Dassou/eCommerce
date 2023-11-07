@@ -20,6 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct eCommerceApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var sessionService = SessionService()
+    @StateObject var favouritesManager = FavouritesManager()
     
     var body: some Scene {
         WindowGroup {
@@ -48,6 +49,7 @@ struct eCommerceApp: App {
                         }
                 }
                 .environmentObject(sessionService)
+                .environmentObject(favouritesManager)
                 
             case .loggedOut:
                 LoginView()

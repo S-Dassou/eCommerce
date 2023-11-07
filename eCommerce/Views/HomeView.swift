@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var viewModel = HomeViewModel()
+    @EnvironmentObject var favouritesManager: FavouritesManager
     
     fileprivate func NavigationBarView() -> some View {
         HStack {
@@ -61,7 +62,15 @@ struct HomeView: View {
     
     .overlay(alignment: .topTrailing) {
         Button {
-            
+            if favouritesManager.products.contains(where: { queryProduct in
+                queryProduct.id == product.id
+            }) {
+                favouritesManager.products.removeAll { queryProduct in
+                    queryProduct.id == product.id
+                }
+            } else {
+                favouritesManager.products.append(product)
+            }
         } label: {
             Image(systemName: "heart")
         }
@@ -111,5 +120,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(FavouritesManager())
     }
 }
