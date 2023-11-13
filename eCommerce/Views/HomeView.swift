@@ -61,18 +61,20 @@ struct HomeView: View {
         .frame(width: 150, height: 250)
     
     .overlay(alignment: .topTrailing) {
+        
         Button {
-            if favouritesManager.products.contains(where: { queryProduct in
-                queryProduct.id == product.id
-            }) {
-                favouritesManager.products.removeAll { $0.id == product.id  }
-                
-//                favouritesManager.products.removeAll { queryProduct in
-//                    queryProduct.id == product.id
-//                }
+            if favouritesManager.products.contains(product) {
+                favouritesManager.products.removeAll { $0.id == product.id }
             } else {
                 favouritesManager.products.append(product)
             }
+//            if favouritesManager.products.contains(where: { queryProduct in
+//                queryProduct.id == product.id
+//            }) {
+//                favouritesManager.products.removeAll { $0.id == product.id }
+//            } else {
+//                favouritesManager.products.append(product)
+//            }
         } label: {
             Image(systemName: "heart")
         }
