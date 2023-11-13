@@ -12,26 +12,33 @@ struct FavouritesView: View {
     
     @EnvironmentObject var favouritesManager: FavouritesManager
     
+    fileprivate func FavouriteRow(favourite: Product) -> some View {
+        HStack {
+            Image(favourite.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 70, height: 70)
+            VStack(alignment: .leading) {
+                Text(favourite.title)
+                    .font(.system(size: 15))
+                    .padding(.bottom, 1)
+                Text(favourite.description)
+                    .font(.system(size: 15))
+                    .padding(.bottom, 1)
+            }
+            Button(action: {
+                removeFromFavourites(product: favourite)
+            }, label: {
+                Image(systemName: "heart.fill")
+            })
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
-                
                 List(favouritesManager.products) { favourite in
-                    HStack {
-                        Image(favourite.image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 70, height: 70)
-                        VStack(alignment: .leading) {
-                            Text(favourite.title)
-                                .font(.system(size: 15))
-                                .padding(.bottom, 1)
-                            Text(favourite.description)
-                                .font(.system(size: 15))
-                                .padding(.bottom, 1)
-                            
-                        }
-                    }
+                    FavouriteRow(favourite: favourite)
                 }
             }
             .overlay(content: {
