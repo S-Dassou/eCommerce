@@ -9,12 +9,14 @@ import SwiftUI
 
 struct FavouritesView: View {
     
-    @State var favourites: [Product] = Product.mockProducts
+    
+    @EnvironmentObject var favouritesManager: FavouritesManager
     
     var body: some View {
         NavigationStack {
             VStack {
-                List(favourites) { favourite in
+                
+                List(favouritesManager.products) { favourite in
                     HStack {
                         Image(favourite.image)
                             .resizable()
@@ -27,18 +29,26 @@ struct FavouritesView: View {
                             Text(favourite.description)
                                 .font(.system(size: 15))
                                 .padding(.bottom, 1)
-                                
+                            
                         }
                     }
                 }
             }
+            .overlay(content: {
+                if favouritesManager.products.count == 0 {
+                    Text("Nothing to see here")
+                }
+            })
             .navigationTitle("Favourites")
         }
     }
+    
+    func removeFromFavourites(product: Product) {
+        favouritesManager.products.removeAll { $0.id == product.id }
+    }
 }
 
-struct FavouritesView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavouritesView()
-    }
+#Preview {
+    FavouritesView()
+        .environmentObject(FavouritesManager())
 }

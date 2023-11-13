@@ -76,7 +76,7 @@ struct HomeView: View {
 //                favouritesManager.products.append(product)
 //            }
         } label: {
-            Image(systemName: "heart")
+            Image(systemName: favouritesManager.products.contains(product) ? "heart.fill" : "heart")
         }
     }
     .overlay {
