@@ -22,6 +22,12 @@ struct Product: Identifiable {
     }
 }
 
+extension Product: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 extension Product {
     static let mockProducts: [Product] = [
         Product(title: "iMac", description: "Pricey & Spicey", price: 2000, image: "iMac"),
