@@ -22,13 +22,14 @@ struct eCommerceApp: App {
     @StateObject var sessionService = SessionService()
     @StateObject var favouritesManager = FavouritesManager()
     @StateObject var cartManager = CartManager()
-    @State var selectedTab = 0
+    @StateObject var tabManager = TabManager()
+
     
     var body: some Scene {
         WindowGroup {
             switch sessionService.sessionState {
             case .loggedIn:
-                TabView(selection: $selectedTab) {
+                TabView(selection: $tabManager.selectedTab) {
                     HomeView()
                         .tabItem {
                             Image(systemName: "house.fill")
@@ -57,7 +58,7 @@ struct eCommerceApp: App {
                 .environmentObject(sessionService)
                 .environmentObject(favouritesManager)
                 .environmentObject(cartManager)
-                
+                .environmentObject(tabManager)
             case .loggedOut:
                 LoginView()
                     .environmentObject(sessionService)

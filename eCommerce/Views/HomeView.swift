@@ -12,6 +12,7 @@ struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
     @EnvironmentObject var favouritesManager: FavouritesManager
     @EnvironmentObject var cartManager: CartManager
+    @EnvironmentObject var tabManager: TabManager
     fileprivate func NavigationBarView() -> some View {
         HStack {
             Spacer()
@@ -20,7 +21,7 @@ struct HomeView: View {
         }
         .overlay(alignment: .trailing) {
             Button(action: {
-                
+                tabManager.selectedTab = 1
             }, label: {
                 ZStack {
                     Image(systemName: "cart.fill")
@@ -139,5 +140,6 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
             .environmentObject(FavouritesManager())
             .environmentObject(CartManager())
+            .environmentObject(TabManager())
     }
 }
