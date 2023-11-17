@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProductDetailView: View {
     let product: Product
+    @State var addToCartAlert = false
+    @EnvironmentObject var cartManager: CartManager
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -25,7 +27,8 @@ struct ProductDetailView: View {
                 .font(.system(size: 15))
                 .padding(.bottom, 10)
             Button(action: {
-                
+                cartManager.products.append(product)
+                addToCartAlert = true
             }, label: {
                 Text("Add to cart")
                     .font(.system(size: 15, weight: .bold))
@@ -34,15 +37,26 @@ struct ProductDetailView: View {
                     .frame(height: 45)
                     .background(Color.blue)
                     .clipShape(RoundedRectangle(cornerRadius: 6))
-                    .padding(.horizontal)
+                    
                     
             })
             Spacer()
         }
+        .alert("Added to cart", isPresented: $addToCartAlert, actions: {
+            Button(role: .none) {
+                 
+            } label: {
+                Text("Okay")
+            }
+
+        }, message: {
+            Text("You have added \(product.title) to your cart")
+        })
         .padding(.horizontal)
     }
 }
 
 #Preview {
     ProductDetailView(product: Product.mockProducts[0])
+        .environmentObject(CartManager())
 }

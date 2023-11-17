@@ -8,6 +8,6 @@
 import Foundation
 import SwiftUI
 
-class CartsManager: ObservableObject {
+class CartManager: ObservableObject {
     @Published var products: [Product] = []
 }

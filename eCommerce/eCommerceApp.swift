@@ -21,7 +21,7 @@ struct eCommerceApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var sessionService = SessionService()
     @StateObject var favouritesManager = FavouritesManager()
-    @StateObject var cartsManager = CartsManager()
+    @StateObject var cartManager = CartManager()
     
     var body: some Scene {
         WindowGroup {
@@ -51,7 +51,7 @@ struct eCommerceApp: App {
                 }
                 .environmentObject(sessionService)
                 .environmentObject(favouritesManager)
-                .environmentObject(cartsManager)
+                .environmentObject(cartManager)
                 
             case .loggedOut:
                 LoginView()

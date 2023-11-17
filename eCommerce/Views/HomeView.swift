@@ -11,7 +11,7 @@ struct HomeView: View {
     
     @StateObject var viewModel = HomeViewModel()
     @EnvironmentObject var favouritesManager: FavouritesManager
-    
+    @EnvironmentObject var cartManager: CartManager
     fileprivate func NavigationBarView() -> some View {
         HStack {
             Spacer()
@@ -25,13 +25,15 @@ struct HomeView: View {
                 ZStack {
                     Image(systemName: "cart.fill")
                         .foregroundStyle(Color.black)
-                    ZStack {
-                        Circle()
-                        Text("1")
-                            .font(.system(size: 14))
-                            .foregroundStyle(Color.white)
+                    if cartManager.products.count > 0 {
+                        ZStack {
+                            Circle()
+                            Text("\(cartManager.products.count)")
+                                .font(.system(size: 14))
+                                .foregroundStyle(Color.white)
+                        }
+                        .offset(CGSize(width: 10, height: -10))
                     }
-                    .offset(CGSize(width: 10, height: -10))
                 }
             })
             .padding(.trailing)
@@ -50,14 +52,17 @@ struct HomeView: View {
                     .clipped()
                 Text(product.title)
                     .font(.system(size: 15))
+                    .foregroundStyle(Color.primary)
                 Text("\(product.displayPrice)")
                     .font(.system(size: 15))
+                    .foregroundStyle(Color.primary)
                 HStack {
                     Image(systemName: "star.fill")
                         .font(.system(size: 14))
                         .foregroundColor(Color.yellow)
                     Text("4.8")
                         .font(.system(size: 14))
+                        .foregroundStyle(Color.primary)
                 }
                 Spacer()
             }
@@ -92,37 +97,39 @@ struct HomeView: View {
         
 }
     var body: some View {
-        VStack {
-            NavigationBarView()
-            Image("banner")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(height: 200)
-                .frame(width: .infinity)
-                .clipped()
-            HStack {
-                Text("Featured")
-                    .font(.system(size: 15))
-                    .padding(.leading, 10)
-                Spacer()
-                Button {
-                    
-                } label: {
-                    Text("View All")
-                        .font(.system(size: 15, weight: .semibold))
-                }
-                .padding(.trailing, 10)
-            }
-            .padding(.top, 10)
-            ScrollView(.horizontal, showsIndicators: false ) {
+        NavigationStack {
+            VStack {
+                NavigationBarView()
+                Image("banner")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 200)
+                    .frame(width: .infinity)
+                    .clipped()
                 HStack {
-                    ForEach(viewModel.products) { product in
-                             ProductRow(product: product)
+                    Text("Featured")
+                        .font(.system(size: 15))
+                        .padding(.leading, 10)
+                    Spacer()
+                    Button {
+                        
+                    } label: {
+                        Text("View All")
+                            .font(.system(size: 15, weight: .semibold))
+                    }
+                    .padding(.trailing, 10)
+                }
+                .padding(.top, 10)
+                ScrollView(.horizontal, showsIndicators: false ) {
+                    HStack {
+                        ForEach(viewModel.products) { product in
+                            ProductRow(product: product)
+                        }
                     }
                 }
+                .padding(.horizontal, 5)
+                Spacer()
             }
-            .padding(.horizontal, 5)
-            Spacer()
         }
     }
 }
@@ -131,5 +138,6 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .environmentObject(FavouritesManager())
+            .environmentObject(CartManager())
     }
 }
