@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ProductGridView: View {
+    var columns = [
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0)
+    ]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollView {
+                LazyVGrid(columns: columns, content: {
+                    
+                })
+            }
+        }
     }
 }
 
