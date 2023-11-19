@@ -48,7 +48,7 @@ struct HomeView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 200)
-                    .frame(width: .infinity)
+                   // .frame(width: .infinity)
                     .clipped()
                 HStack {
                     Text("Featured")

@@ -19,6 +19,7 @@
 		F64331B22B096B9000775C7D /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64331B12B096B9000775C7D /* ProductGridView.swift */; };
 		F64331B52B0970C800775C7D /* ProductRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64331B42B0970C800775C7D /* ProductRowView.swift */; };
 		F64331B72B09738500775C7D /* ProductGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64331B62B09738500775C7D /* ProductGridViewModel.swift */; };
+		F64331B92B0A979D00775C7D /* ProductInCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64331B82B0A979D00775C7D /* ProductInCart.swift */; };
 		F65609722ACA022500BC12DB /* eCommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609712ACA022500BC12DB /* eCommerceApp.swift */; };
 		F65609742ACA022500BC12DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609732ACA022500BC12DB /* ContentView.swift */; };
 		F65609762ACA022900BC12DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F65609752ACA022900BC12DB /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		F64331B12B096B9000775C7D /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
 		F64331B42B0970C800775C7D /* ProductRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRowView.swift; sourceTree = "<group>"; };
 		F64331B62B09738500775C7D /* ProductGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridViewModel.swift; sourceTree = "<group>"; };
+		F64331B82B0A979D00775C7D /* ProductInCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInCart.swift; sourceTree = "<group>"; };
 		F656096E2ACA022500BC12DB /* eCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65609712ACA022500BC12DB /* eCommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eCommerceApp.swift; sourceTree = "<group>"; };
 		F65609732ACA022500BC12DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				F62962F82AD153F200E7E9D5 /* Product.swift */,
 				F68D61472AD5946200FEF352 /* SessionState.swift */,
+				F64331B82B0A979D00775C7D /* ProductInCart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				F68D614C2AD5960400FEF352 /* SessionService.swift in Sources */,
 				F65609802ACA035C00BC12DB /* CartView.swift in Sources */,
 				F63305082AF54BB100F195D7 /* RegisterView.swift in Sources */,
+				F64331B92B0A979D00775C7D /* ProductInCart.swift in Sources */,
 				F66336AA2B05757A00E05AC8 /* ProductDetailView.swift in Sources */,
 				F65609742ACA022500BC12DB /* ContentView.swift in Sources */,
 				F64331B72B09738500775C7D /* ProductGridViewModel.swift in Sources */,
