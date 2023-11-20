@@ -11,8 +11,28 @@ struct CartView: View {
     
     @EnvironmentObject var cartManager: CartManager
     
+    fileprivate func CartRow(productInCart: ProductInCart) -> some View {
+        HStack {
+            Image(productInCart.product.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 70, height: 70)
+            VStack(alignment: .leading) {
+                Text(productInCart.product.title)
+                    .font(.system(size: 15))
+                    .padding(.bottom, 1)
+            }
+        }
+    }
     var body: some View {
-        Text("Cart View")
+        VStack {
+//            List((cartManager.productsInCart)) { product in
+//                CartRow(productInCart: ProductInCart)
+//            }
+            List {
+                ForEach(cartManager.productsInCart) { productInCart in CartRow(productInCart: productInCart)}
+            }
+        }
     }
 }
 
