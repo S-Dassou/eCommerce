@@ -26,10 +26,10 @@ struct HomeView: View {
                 ZStack {
                     Image(systemName: "cart.fill")
                         .foregroundStyle(Color.black)
-                    if cartManager.products.count > 0 {
+                    if cartManager.productsInCart.count > 0 {
                         ZStack {
                             Circle()
-                            Text("\(cartManager.products.count)")
+                            Text("\(cartManager.productsInCart.count)")
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.white)
                         }
