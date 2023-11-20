@@ -11,6 +11,17 @@ import SwiftUI
 class CartManager: ObservableObject {
     @Published var productsInCart: [ProductInCart] = []
     
+    func addToCart(product: Product) {
+        if let indexOfProductInCart = productsInCart.firstIndex(where: { $0.id == product.id }) {
+            let currentQuantity = productsInCart[indexOfProductInCart].quantity
+            let newQuantity = currentQuantity + 1
+            productsInCart[indexOfProductInCart] = ProductInCart(product: product, quantity: newQuantity)
+        
+        } else {
+            productsInCart.append(ProductInCart(product: product, quantity: 1))
+        }
+    }
+    
     var displayCartQuantity: Int {
         return productsInCart.reduce(0) { $0 + $1.quantity }
     }
