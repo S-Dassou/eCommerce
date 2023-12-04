@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 class CartManager: ObservableObject {
+    
     @Published var productsInCart: [ProductInCart] = []
     
     func addToCart(product: Product) {
@@ -19,6 +20,18 @@ class CartManager: ObservableObject {
         
         } else {
             productsInCart.append(ProductInCart(product: product, quantity: 1))
+        }
+    }
+    
+    func removeFromCart(product: Product) {
+        if let indexOfProductInCart = productsInCart.firstIndex(where: { $0.id == product.id }) {
+            let currentQuantity = productsInCart[indexOfProductInCart].quantity
+            if currentQuantity > 1 {
+                let newQuantity = currentQuantity - 1
+                productsInCart[indexOfProductInCart] = ProductInCart(product: product, quantity: newQuantity)
+            } else if currentQuantity == 1 {
+                productsInCart.remove(at: indexOfProductInCart)
+            }
         }
     }
     
