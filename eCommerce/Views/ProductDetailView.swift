@@ -27,7 +27,7 @@ struct ProductDetailView: View {
                 .font(.system(size: 15))
                 .padding(.bottom, 10)
             Button(action: {
-                cartManager.products.append(product)
+                $cartManager.products.append(product)
                 addToCartAlert = true
             }, label: {
                 Text("Add to cart")
