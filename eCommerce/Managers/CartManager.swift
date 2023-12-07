@@ -35,7 +35,7 @@ class CartManager: ObservableObject {
         }
     }
     
-    var displayCartQuantity: Int {
+    var displayTotalCartQuantity: Int {
         return productsInCart.reduce(0) { $0 + $1.quantity }
     }
     

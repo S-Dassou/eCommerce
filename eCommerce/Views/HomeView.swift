@@ -13,6 +13,7 @@ struct HomeView: View {
     @EnvironmentObject var favouritesManager: FavouritesManager
     @EnvironmentObject var cartManager: CartManager
     @EnvironmentObject var tabManager: TabManager
+    
     fileprivate func NavigationBarView() -> some View {
         HStack {
             Spacer()
@@ -29,7 +30,7 @@ struct HomeView: View {
                     if cartManager.productsInCart.count > 0 {
                         ZStack {
                             Circle()
-                            Text("\(cartManager.productsInCart.count)")
+                            Text("\(cartManager.displayTotalCartQuantity)")
                                 .font(.system(size: 14))
                                 .foregroundStyle(Color.white)
                         }
