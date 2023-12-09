@@ -33,12 +33,26 @@ struct CartView: View {
     }
     var body: some View {
         VStack {
-//            List((cartManager.productsInCart)) { product in
-//                CartRow(productInCart: ProductInCart)
-//            }
             List {
-                ForEach(cartManager.productsInCart) { productInCart in CartRow(productInCart: productInCart)}
+                ForEach(cartManager.productsInCart) { productInCart in CartRow(productInCart: productInCart)
+                }
             }
+            VStack(spacing: 0) {
+                Divider()
+                HStack {
+                    Text("Total: \(cartManager.displayTotalCartQuantity) items")
+                        .font(.system(size: 16))
+                    Spacer()
+                    Text(cartManager.displayTotalCartPrice)
+                        .font(.system(size: 16, weight: .bold))
+                }
+                .padding(.vertical, 30)
+                .padding(.horizontal)
+                PaymentButton()
+                    .frame(height: 40)
+                    .padding(.horizontal)
+            }
+            
         }
     }
 }
