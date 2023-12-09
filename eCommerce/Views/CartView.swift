@@ -10,6 +10,7 @@ import SwiftUI
 struct CartView: View {
     
     @EnvironmentObject var cartManager: CartManager
+    @StateObject var viewModel = CartViewModel()
     
     fileprivate func CartRow(productInCart: ProductInCart) -> some View {
         HStack {
@@ -48,13 +49,13 @@ struct CartView: View {
                 }
                 .padding(.vertical, 30)
                 .padding(.horizontal)
-                PaymentButton()
+                PaymentButton(action: viewModel.pay)
                     .frame(height: 40)
                     .padding(.horizontal)
             }
-            
         }
     }
+
 }
 
 struct CartView_Previews: PreviewProvider {
