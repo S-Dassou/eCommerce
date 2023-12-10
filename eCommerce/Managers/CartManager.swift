@@ -46,5 +46,13 @@ class CartManager: ObservableObject {
         return formatter.string(from: totalPrice as NSNumber) ?? "£0.00"
         
     }
-}
+    
+    var totalCartPrice: Double {
+        let totalPrice = productsInCart.reduce(0) {
+            $0 + ($1.product.price * Double($1.quantity)) }
+            
+            return totalPrice
+        }
+    }
+
 

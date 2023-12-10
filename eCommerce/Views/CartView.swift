@@ -11,6 +11,7 @@ struct CartView: View {
     
     @EnvironmentObject var cartManager: CartManager
     @StateObject var viewModel = CartViewModel()
+    let paymentService = PaymentService()
     
     fileprivate func CartRow(productInCart: ProductInCart) -> some View {
         HStack {
@@ -49,13 +50,15 @@ struct CartView: View {
                 }
                 .padding(.vertical, 30)
                 .padding(.horizontal)
-                PaymentButton(action: viewModel.pay)
+                PaymentButton(action: pay)
                     .frame(height: 40)
                     .padding(.horizontal)
             }
         }
     }
-
+    func pay() {
+        paymentService.startPayment(productsInCart: cartManager.productsInCart, total: cartManager.totalCartPrice)
+    }
 }
 
 struct CartView_Previews: PreviewProvider {

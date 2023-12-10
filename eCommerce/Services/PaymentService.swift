@@ -39,7 +39,7 @@ class PaymentService: NSObject {
         return [shippingDelivery]
     }
     //total = total number of items
-    func startPayment(productsInCart: [ProductInCart], total: Int) {
+    func startPayment(productsInCart: [ProductInCart], total: Double) {
         paymentSummaryItems.removeAll()
         
         productsInCart.forEach { productInCart in
