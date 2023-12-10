@@ -10,15 +10,13 @@ import PassKit
 
 class PaymentService: NSObject {
     
-    static let supportedNetworks: [PKPaymentNetwork] = [
-        .visa,
-        .masterCard
-    ]
-    
-    var paymentSummaryItems: [PKPaymentSummaryItem] = []
+    private var paymentController: PKPaymentAuthorizationController?
+    private var paymentSummaryItems: [PKPaymentSummaryItem] = []
+    private var paymentStatus: PKPaymentAuthorizationStatus = PKPaymentAuthorizationStatus.failure
+    var completionHandler: ((Bool) -> Void)?
     
     //PKShippingMethod - wraps around all items
-    func shippingMethodCalculator() -> [PKShippingMethod] {
+    private func shippingMethodCalculator() -> [PKShippingMethod] {
         let today = Date()
         let calendar = Calendar.current
         
@@ -48,5 +46,53 @@ class PaymentService: NSObject {
             let item = PKPaymentSummaryItem(label: "\(productInCart.product.title) x \(productInCart.quantity)", amount: NSDecimalNumber(string: productInCart.displayTotalPrice), type: .final)
             paymentSummaryItems.append(item )
         }
+        
+        let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: total))
+        paymentSummaryItems.append(total)
+        
+        let paymentRequest = PKPaymentRequest()
+        paymentRequest.paymentSummaryItems = paymentSummaryItems
+        paymentRequest.merchantIdentifier = "merchant.com.shafiquedassu.ecommerceapp"
+        paymentRequest.merchantCapabilities = .threeDSecure
+        paymentRequest.countryCode = "US" //GBR ISO code for UK
+        paymentRequest.currencyCode = "USD"
+        paymentRequest.supportedNetworks = [
+            .visa,
+            .masterCard
+        ]
+        paymentRequest.shippingType = .delivery
+        paymentRequest.shippingMethods = shippingMethodCalculator()
+        paymentRequest.requiredShippingContactFields = [.name, .postalAddress, .phoneNumber]
+        
+        paymentController = PKPaymentAuthorizationController(paymentRequest: paymentRequest)
+        paymentController?.delegate = self
+        paymentController?.present(completion: { presented in
+            
+        })
     }
 }
+
+extension PaymentService: PKPaymentAuthorizationControllerDelegate {
+    
+    func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        paymentStatus = PKPaymentAuthorizationStatus.success
+        completion(PKPaymentAuthorizationResult(status: paymentStatus, errors: [Error]()))
+    }
+    
+    
+    
+    func paymentAuthorizationControllerDidFinish(_ controller: PKPaymentAuthorizationController) {
+        controller.dismiss {
+            if self.paymentStatus == .success {
+                if let completionHandler = self.completionHandler {
+                    completionHandler(true)
+                }
+            } else {
+                if let completionHandler = self.completionHandler {
+                            completionHandler(false)
+                        }
+                    }
+                }
+            }
+        }
+
