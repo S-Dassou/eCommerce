@@ -13,7 +13,7 @@ struct ProductInCart: Identifiable {
     }
     let product: Product
     var quantity: Int
-    var DisplayTotalPrice: String {
+    var displayTotalPrice: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         let total = Double(quantity) * product.price

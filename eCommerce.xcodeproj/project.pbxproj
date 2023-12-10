@@ -30,6 +30,7 @@
 		F65609862ACA3DA100BC12DB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65609852ACA3DA100BC12DB /* HomeView.swift */; };
 		F65731152B2335E900854FF2 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65731142B2335E900854FF2 /* PaymentButton.swift */; };
 		F65731172B25203900854FF2 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65731162B25203900854FF2 /* CartViewModel.swift */; };
+		F65731192B2520F800854FF2 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65731182B2520F800854FF2 /* PaymentService.swift */; };
 		F66336A82B05747800E05AC8 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66336A72B05747800E05AC8 /* CartManager.swift */; };
 		F66336AA2B05757A00E05AC8 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66336A92B05757A00E05AC8 /* ProductDetailView.swift */; };
 		F68D61482AD5946200FEF352 /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D61472AD5946200FEF352 /* SessionState.swift */; };
@@ -65,6 +66,7 @@
 		F65609852ACA3DA100BC12DB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F65731142B2335E900854FF2 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		F65731162B25203900854FF2 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		F65731182B2520F800854FF2 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 		F66336A72B05747800E05AC8 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		F66336A92B05757A00E05AC8 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F68D61472AD5946200FEF352 /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				F68D614B2AD5960400FEF352 /* SessionService.swift */,
+				F65731182B2520F800854FF2 /* PaymentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				F68D614C2AD5960400FEF352 /* SessionService.swift in Sources */,
 				F65731152B2335E900854FF2 /* PaymentButton.swift in Sources */,
 				F65609802ACA035C00BC12DB /* CartView.swift in Sources */,
+				F65731192B2520F800854FF2 /* PaymentService.swift in Sources */,
 				F63305082AF54BB100F195D7 /* RegisterView.swift in Sources */,
 				F64331B92B0A979D00775C7D /* ProductInCart.swift in Sources */,
 				F66336AA2B05757A00E05AC8 /* ProductDetailView.swift in Sources */,
