@@ -19,17 +19,13 @@ struct RegisterView: View {
             Text("Register")
                 .font(.title)
             TextField("Username", text: $viewModel.username)
-                .frame(height: 45)
-                .padding(.horizontal)
+                .textFieldStyle(PrimaryTextFieldStyle())
             TextField("Email", text: $viewModel.email)
-                .frame(height: 45)
-                .padding(.horizontal)
+                .textFieldStyle(PrimaryTextFieldStyle())
             SecureField("Password", text: $viewModel.password)
-                .frame(height: 45)
-                .padding(.horizontal)
+                .textFieldStyle(PrimaryTextFieldStyle())
             SecureField("Confirm Password", text: $viewModel.confirmPassword)
-                .frame(height: 45)
-                .padding(.horizontal)
+                .textFieldStyle(PrimaryTextFieldStyle())
             Button {
                 Task {
                     let success = await viewModel.register() //success returns Bool

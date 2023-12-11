@@ -18,11 +18,9 @@ struct LoginView: View {
             Text("LogIn")
                 .font(.title)
             TextField("Email", text: $viewModel.email)
-                .frame(height: 45)
-                .padding(.horizontal)
+                .textFieldStyle(PrimaryTextFieldStyle())
             TextField("Password", text: $viewModel.password)
-                .frame(height: 45)
-                .padding(.horizontal)
+                .textFieldStyle(PrimaryTextFieldStyle())
             Button {
                 Task {
                     let success = await viewModel.login()
