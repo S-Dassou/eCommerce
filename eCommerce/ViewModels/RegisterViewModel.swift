@@ -18,6 +18,8 @@ class RegisterViewModel: ObservableObject {
     @Published var confirmPassword = ""
     @Published var showErrorAlert = false
     @Published var errorMessage = ""
+    @Published var goToLoginView = false
+    @Published var isLoading = false
     
     func register() async -> Bool {
         do {
