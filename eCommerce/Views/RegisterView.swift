@@ -56,6 +56,14 @@ struct RegisterView: View {
                 .padding(.top)
                 Spacer()
             }
+            .alert("Error", isPresented: $viewModel.showErrorAlert) {
+                Button("OK") {
+                    
+                }
+            } message: {
+                Text(viewModel.errorMessage)
+            }
+
             if viewModel.isLoading {
                 Color.black.opacity(0.5)
                     .ignoresSafeArea()

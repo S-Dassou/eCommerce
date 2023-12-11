@@ -23,8 +23,10 @@ struct LoginView: View {
                     .textInputAutocapitalization(.never)
                     .textContentType(.emailAddress)
                     .keyboardType(.emailAddress)
+                    .padding(.horizontal)
                 SecureField("Password", text: $viewModel.password)
                     .textFieldStyle(PrimaryTextFieldStyle())
+                    .padding(.horizontal)
                 Button {
                     viewModel.isLoading = true
                     Task {
