@@ -19,9 +19,17 @@ struct RegisterView: View {
             Text("Register")
                 .font(.title)
             TextField("Username", text: $viewModel.username)
+                .frame(height: 45)
+                .padding(.horizontal)
             TextField("Email", text: $viewModel.email)
+                .frame(height: 45)
+                .padding(.horizontal)
             SecureField("Password", text: $viewModel.password)
+                .frame(height: 45)
+                .padding(.horizontal)
             SecureField("Confirm Password", text: $viewModel.confirmPassword)
+                .frame(height: 45)
+                .padding(.horizontal)
             Button {
                 Task {
                     let success = await viewModel.register() //success returns Bool
@@ -32,6 +40,7 @@ struct RegisterView: View {
             } label: {
                 Text("LogIn")
             }
+            .buttonStyle(PrimaryButtonStyle())
 
              Spacer()
         }

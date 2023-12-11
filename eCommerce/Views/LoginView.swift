@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct LoginView: View {
-    @State var goToRegisterView = false
+    
     @StateObject var viewModel = LoginViewModel()
     @EnvironmentObject var sessionService: SessionService
     
@@ -18,7 +18,11 @@ struct LoginView: View {
             Text("LogIn")
                 .font(.title)
             TextField("Email", text: $viewModel.email)
+                .frame(height: 45)
+                .padding(.horizontal)
             TextField("Password", text: $viewModel.password)
+                .frame(height: 45)
+                .padding(.horizontal)
             Button {
                 Task {
                     let success = await viewModel.login()
@@ -29,13 +33,17 @@ struct LoginView: View {
                 }
             } label: {
                 Text("LogIn")
+                    .font(.system(size: 15))
             }
+            .buttonStyle(PrimaryButtonStyle())
             
             Button {
-                goToRegisterView = true
+                viewModel.goToRegisterView = true
             } label: {
                 Text("Register")
+                    .font(.system(size: 15))
             }
+            .padding(.top)
 
 
              Spacer()
@@ -45,7 +53,7 @@ struct LoginView: View {
         } message: {
             Text(viewModel.errorMessage)
         }
-        .sheet(isPresented: $goToRegisterView) {
+        .sheet(isPresented: $viewModel.goToRegisterView) {
             RegisterView()
         }
     }

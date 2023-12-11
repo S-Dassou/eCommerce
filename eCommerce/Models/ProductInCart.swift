@@ -20,4 +20,8 @@ struct ProductInCart: Identifiable {
         return formatter.string(from: total as NSNumber) ?? "£0.00"
          
     }
+    
+    var totalPrice: Double {
+        return Double(quantity) * product.price
+    }
 }

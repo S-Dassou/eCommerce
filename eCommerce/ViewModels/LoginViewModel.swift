@@ -15,6 +15,8 @@ class LoginViewModel: ObservableObject {
     @Published var password = ""
     @Published var showErrorAlert = false
     @Published var errorMessage = ""
+    @Published var goToRegisterView = false
+
     
     func login() async -> Bool {
         do {

@@ -34,29 +34,38 @@ struct CartView: View {
         }
     }
     var body: some View {
-        VStack {
-            List {
-                ForEach(cartManager.productsInCart) { productInCart in CartRow(productInCart: productInCart)
+        
+        if cartManager.productsInCart.count == 0 {
+            Text("Cart is empty")
+                .font(.system(size: 16, weight: .semibold))
+        } else {
+            VStack {
+                List {
+                    ForEach(cartManager.productsInCart) { productInCart in CartRow(productInCart: productInCart)
+                    }
                 }
-            }
-            VStack(spacing: 0) {
-                Divider()
-                HStack {
-                    Text("Total: \(cartManager.displayTotalCartQuantity) items")
-                        .font(.system(size: 16))
-                    Spacer()
-                    Text(cartManager.displayTotalCartPrice)
-                        .font(.system(size: 16, weight: .bold))
-                }
-                .padding(.vertical, 30)
-                .padding(.horizontal)
-                PaymentButton(action: pay)
-                    .frame(height: 40)
+                VStack(spacing: 0) {
+                    Divider()
+                    HStack {
+                        Text("Total: \(cartManager.displayTotalCartQuantity) items")
+                            .font(.system(size: 16))
+                        Spacer()
+                        Text(cartManager.displayTotalCartPrice)
+                            .font(.system(size: 16, weight: .bold))
+                    }
+                    .padding(.vertical, 30)
                     .padding(.horizontal)
+                    PaymentButton(action: pay)
+                        .frame(height: 40)
+                        .padding(.horizontal)
+                }
             }
         }
     }
     func pay() {
+        guard cartManager.productsInCart.count > 0 else {
+            return
+        }
         paymentService.startPayment(productsInCart: cartManager.productsInCart, total: cartManager.totalCartPrice)
     }
 }

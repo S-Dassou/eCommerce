@@ -43,7 +43,7 @@ class PaymentService: NSObject {
         paymentSummaryItems.removeAll()
         
         productsInCart.forEach { productInCart in
-            let item = PKPaymentSummaryItem(label: "\(productInCart.product.title) x \(productInCart.quantity)", amount: NSDecimalNumber(string: productInCart.displayTotalPrice), type: .final)
+            let item = PKPaymentSummaryItem(label: "\(productInCart.product.title) x \(productInCart.quantity)", amount: NSDecimalNumber(value: productInCart.totalPrice), type: .final)
             paymentSummaryItems.append(item )
         }
         
